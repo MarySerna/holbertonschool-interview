@@ -1,4 +1,4 @@
-# 0x00-lockboxes
+# 0x03-minimum_operations
 
 ##
 
