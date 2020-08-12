@@ -24,4 +24,3 @@ def minOperations(n):
         else:
             i += 1
     return m
-
