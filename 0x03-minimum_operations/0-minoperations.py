@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Calculates the fewest number of operations 
+Calculates the fewest number of operations
 needed to result in exactly n H characters.
 """
 
 
 def minOperations(n):
     """
-    Calculates the fewest number of operations 
+    Calculates the fewest number of operations
     needed to result in exactly n H characters.
     """
 
