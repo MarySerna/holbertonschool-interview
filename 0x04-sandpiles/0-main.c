@@ -4,34 +4,34 @@
 #include "sandpiles.h"
 
 /**
-* print_grid_sum - entry point
-* @grid1: int
-* @grid2: int
-* @printf
-*/
+ * sandpiles_sum - adds two sandpiles together and topples once
+ * @grid1: grid to be added
+ * @grid2: grid to be added
+ */
+
 static void print_grid_sum(int grid1[3][3], int grid2[3][3])
 {
->-------int i, j;
+	int i, j;
 
->-------for (i = 0; i < 3; i++)
->-------{
->------->-------for (j = 0; j < 3; j++)
->------->-------{
->------->-------if (j)
->------->------->-------printf(" ");
->------->------->-------printf("%d", grid1[i][j]);
->------->-------}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+		if (j)
+		printf(" ");
+		printf("%d", grid1[i][j]);
+		}
 
->------->-------printf(" %c ", (i == 1 ? '+' : ' '));
+		printf(" %c ", (i == 1 ? '+' : ' '));
 
->------->-------for (j = 0; j < 3; j++)
->------->-------{
->------->------->-------if (j)
->------->------->-------printf(" ");
->------->------->-------printf("%d", grid2[i][j]);
->------->-------}
->------->-------printf("\n");
->-------}
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+			printf(" ");
+			printf("%d", grid2[i][j]);
+		}
+		printf("\n");
+	}
 }
 
 /**
@@ -39,48 +39,46 @@ static void print_grid_sum(int grid1[3][3], int grid2[3][3])
 * @grid:int
 * @printf
 */
-
 static void print_grid(int grid[3][3])
 {
->-------int i, j;
+	int i, j;
 
->-------for (i = 0; i < 3; i++)
->-------{
->------->-------for (j = 0; j < 3; j++)
->------->-------{
->------->------->-------if (j)
->------->------->-------printf(" ");
->------->------->-------printf("%d", grid[i][j]);
->------->-------}
->------->-------printf("\n");
->-------}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+			printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
 }
-
 
 /**
  * main - Entry point
  *
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
-
 int main(void)
 {
->-------int grid1[3][3] = {
->------->-------{3, 3, 3},
->------->-------{3, 3, 3},
->------->-------{3, 3, 3}
->------->-------};
->-------int grid2[3][3] = {
->------->-------{1, 3, 1},
->------->-------{3, 3, 3},
->------->-------{1, 3, 1}
->------->-------};
->-------print_grid_sum(grid1, grid2);
+	int grid1[3][3] = {
+	{3, 3, 3},
+	{3, 3, 3},
+	{3, 3, 3}
+	};
+	int grid2[3][3] = {
+	{1, 3, 1},
+	{3, 3, 3},
+	{1, 3, 1}
+	};
 
->-------sandpiles_sum(grid1, grid2);
+	print_grid_sum(grid1, grid2);
 
->-------printf("=\n");
->-------print_grid(grid1);
+	sandpiles_sum(grid1, grid2);
 
->-------return (EXIT_SUCCESS);
+	printf("=\n");
+	print_grid(grid1);
+
+	return (EXIT_SUCCESS);
 }
