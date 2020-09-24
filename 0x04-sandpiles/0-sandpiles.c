@@ -22,7 +22,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  * add_piles - adds two sandpiles together
  * @grid1: grid to be added, changed to new value
  * @grid2: grid to be added, zero'd out after
- * 
+ *
  * Return: void.
  */
 void add_piles(int grid1[3][3], int grid2[3][3])
