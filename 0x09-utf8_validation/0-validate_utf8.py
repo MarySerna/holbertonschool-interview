@@ -5,35 +5,39 @@
 def validUTF8(data):
     """
     Method that determines if a given data set represents a valid
-    UTF-8 encoding.
+    UTF-8 encoding
     """
-  
-	nm_bytes = 0
-	maskone = 1 << 7
-	masktwo = 1 << 6
+    num_bytes = 0
 
-	for i in data:
+    maskone = 1 << 7
+    masktwo = 1 << 6
 
-	mask_n_byte = 1 << 7
+    for i in data:
 
-	if nm_bytes == 0:
-		while mask_n_byte & i:
-			nm_bytes += 1
-			mask_n_byte = mask_n_byte >> 1
+        mask_n_byte = 1 << 7
 
-		if nm_bytes == 0:
-			continue
+        if num_bytes == 0:
+            # Count number of bytes the UTF-8 Character will have
+            while mask_n_byte & i:
+                num_bytes += 1
+                mask_n_byte = mask_n_byte >> 1
 
-		if nm_bytes == 1 or nm_bytes > 4:
-			return False
+            # If number of bytes did not increase then it has 1 byte
+            if num_bytes == 0:
+                continue
 
-	else:
-		if not (i & maskone and not (i & masktwo)):
-			return False
+            # A character in UTF-8 can be 1 to 4 bytes long
 
-		nm_bytes -= 1
+            if num_bytes == 1 or num_bytes > 4:
+                return False
 
-	if nm_bytes == 0:
+        else:
+            if not (i & maskone and not (i & masktwo)):
+                    return False
+
+        num_bytes -= 1
+
+    if num_bytes == 0:
         return True
 
     return False
