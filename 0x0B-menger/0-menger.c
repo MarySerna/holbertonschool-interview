@@ -1,6 +1,6 @@
+#include "menger.h"
 #include <stdio.h>
 #include <math.h>
-#include "menger.h"
 
 /**
  * One - Checks if indices are (1, 1), if so, then square is blank
