@@ -19,7 +19,7 @@ avl_t *bisearch(int *array, int start, int end, avl_t *parent)
 
 	if (start > end)
 		return (NULL);
-	
+
 	mid = (start + end) / 2;
 		node = malloc(sizeof(avl_t));
 
