@@ -14,22 +14,22 @@
  **/
 avl_t *bisearch(int *array, int start, int end, avl_t *parent)
 {
-		int mid;
-		avl_t *node;
+	int mid;
+	avl_t *node;
 
-	    if (start > end)
-		    return (NULL);
+	if (start > end)
+		return (NULL);
 	
-        mid = (start + end) / 2;
-	    node = malloc(sizeof(avl_t));
+	mid = (start + end) / 2;
+		node = malloc(sizeof(avl_t));
 
-        if (!node)
-			return (NULL);
-		node->n = array[mid];
-		node->parent = parent;
-		node->left = bisearch(array, start, mid - 1, node);
-		node->right = bisearch(array, mid + 1, end, node);
-		return (node);
+	if (!node)
+		return (NULL);
+	node->n = array[mid];
+	node->parent = parent;
+	node->left = bisearch(array, start, mid - 1, node);
+	node->right = bisearch(array, mid + 1, end, node);
+	return (node);
 }
 
 
