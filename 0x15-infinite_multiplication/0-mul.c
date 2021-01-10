@@ -1,0 +1,100 @@
+#include "holberton.h"
+
+
+
+/**
+ * is_digit - checks if the arg is a number
+ * @c: argument
+ *
+ * Return: false or true
+ **/
+int is_digit(char *c)
+{
+	while (*c)
+	{
+		if (*c < '0' || *c > '9')
+			return (0);
+		c++;
+	}
+	return (1);
+}
+
+/**
+ * _strlen - find the len of the str
+ * @b: string
+ *
+ * Return: the length
+ **/
+int _strlen(char *b)
+{
+	char *p = b;
+
+	while (*b)
+		b++;
+	return (b - p);
+}
+
+/**
+ * multiply - multiplies two numbers
+ * @a: first "number"
+ * @b: second "number"
+ **/
+void multiply(char *a, char *b)
+{
+	int i, len_a, len_b, total, a_num, b_num, res = 0, temp;
+	int *ptr;
+
+	len_a = _strlen(a);
+	len_b = _strlen(b);
+	temp = len_b;
+	total = len_a + len_b;
+	ptr = malloc(sizeof(int) * total);
+	if (!ptr)
+	{
+		return;
+	}
+	for (len_a--; len_a >= 0; len_a--)
+	{
+		a_num = a[len_a] - '0';
+		res = 0;
+		len_b = temp;
+		for (len_b--; len_b >= 0; len_b--)
+		{
+			b_num = b[len_b] - '0';
+			res += ptr[len_b + len_a + 1] + (a_num * b_num);
+			ptr[len_a + len_b + 1] = res % 10;
+			res /= 10;
+		}
+		if (res)
+			ptr[len_a + len_b + 1] = res % 10;
+	}
+	while (*ptr == 0)
+	{
+		ptr++;
+		total--;
+	}
+	for (i = 0; i < total; i++)
+		printf("%i", ptr[i]);
+	printf("\n");
+}
+
+/**
+ * main - multiplies two numbers
+ * @argc: argument count
+ * @argv: argument vectors
+ *
+ * Return: 0
+ **/
+int main(int argc, char *argv[])
+{
+	char *a = argv[1];
+	char *b = argv[2];
+
+	if (argc != 3 || !is_digit(a) || !is_digit(b))
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	multiply(a, b);
+	return (0);
+}
