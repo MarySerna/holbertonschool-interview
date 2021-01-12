@@ -1,5 +1,7 @@
 #include "holberton.h"
 
+
+
 /**
  * is_digit - checks if the arg is a number
  * @c: argument
@@ -39,12 +41,12 @@ int _strlen(char *b)
  **/
 void multiply(char *a, char *b)
 {
-	int i, len_a, len_b, total, a_num, b_num, res = 0, temp;
+	int i, len_a, len_b, total, a_number, b_number, res = 0, tmp;
 	int *ptr;
 
 	len_a = _strlen(a);
 	len_b = _strlen(b);
-	temp = len_b;
+	tmp = len_b;
 	total = len_a + len_b;
 	ptr = malloc(sizeof(int) * total);
 	if (!ptr)
@@ -53,13 +55,13 @@ void multiply(char *a, char *b)
 	}
 	for (len_a--; len_a >= 0; len_a--)
 	{
-		a_num = a[len_a] - '0';
+		a_number = a[len_a] - '0';
 		res = 0;
-		len_b = temp;
+		len_b = tmp;
 		for (len_b--; len_b >= 0; len_b--)
 		{
-			b_num = b[len_b] - '0';
-			res += ptr[len_b + len_a + 1] + (a_num * b_num);
+			b_number = b[len_b] - '0';
+			res += ptr[len_b + len_a + 1] + (a_number * b_number);
 			ptr[len_a + len_b + 1] = res % 10;
 			res /= 10;
 		}
