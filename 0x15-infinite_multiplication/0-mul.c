@@ -1,7 +1,5 @@
 #include "holberton.h"
 
-
-
 /**
  * is_digit - checks if the arg is a number
  * @c: argument
