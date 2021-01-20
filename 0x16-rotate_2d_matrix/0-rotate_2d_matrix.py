@@ -13,5 +13,5 @@ def rotate_2d_matrix(matrix):
     n = len(matrix[0])
 
     for i in range(n - 1, -1, -1):
-        for j in range(0, n):
-            matrix[j].append(matrix[i].pop(0))
+        for x in range(0, n):
+            matrix[x].append(matrix[i].pop(0))
